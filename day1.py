@@ -1,11 +1,21 @@
-list1 = [3,4,2,1,3,3]
-list2 = [4,3,5,3,9,3]
-
-
 def main():
+    list1, list2 = readFile()
     list_of_distance = compare_list(list1, list2)
     total_distance = sum_of_distance(list_of_distance)
     print("total of distance: ", total_distance)
+
+
+def readFile():
+    left_list = []
+    right_list = []
+    with open("adventofcode2024/input.txt", "r") as file:
+        for line in file:
+            values = line.split("   ")
+            left_list.append(int(values[0]))
+            right_list.append(int(values[1]))
+    left_list.sort()
+    right_list.sort()        
+    return left_list, right_list
 
 
 def smallest_number(list):
